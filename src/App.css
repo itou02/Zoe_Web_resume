@@ -1,5 +1,18 @@
+html,
+body {
+  margin: 0;
+  padding: 1%;
+  background-color: #e1e1e1;
+
+  /* background-color: #a58e7b; */
+}
+
 .App {
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #e1e1e1;
+  width: 100vw;
+  height: 100vh;
 }
 
 .App-logo {
@@ -32,7 +45,27 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+nav {
+  background-color: #a58e7b;
+  margin: 0;
+  padding: 0.2%;
+}
+
+nav ul {
+  width: 10%;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  font-size: larger;
+  justify-content: space-around;
+}
+
+nav ul li {
+  list-style-type: none;
 }
