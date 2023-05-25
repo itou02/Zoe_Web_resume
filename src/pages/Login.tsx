@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -11,10 +12,11 @@ const LoginPage: React.FC = () => {
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
     };
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/login', {
+            const response = await fetch('http://localhost:8000/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,14 +26,13 @@ const LoginPage: React.FC = () => {
 
             if (response.ok) {
                 const data = await response.json();
-                // 登入成功後的處理
-                console.log('Access Token:', data.access_token);
+                console.log('Access Token:', data);
+                if(data.user!=null)
+                    navigate('/');
             } else {
-                // 登入失敗的處理
                 console.error('Login failed');
             }
         } catch (error) {
-            // 請求失敗的處理
             console.error('Request failed:', error);
         }
     };

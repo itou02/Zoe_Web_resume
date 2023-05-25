@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 // import axios from 'axios';
 
 const Register: React.FC = () => {
@@ -6,6 +8,7 @@ const Register: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
@@ -46,14 +49,13 @@ const Register: React.FC = () => {
             const data = await response.json();
 
             if (response.ok) {
-                // 註冊成功的處理
-                console.log('Registration successful');
+                console.log('Registration successful,',data);
+                if(data.message==="Registration successful")
+                navigate('/login');
             } else {
-                // 註冊失敗的處理
                 console.error('Registration failed');
             }
         } catch (error) {
-            // 請求失敗的處理
             console.error('Request failed:', error);
         }
     };
@@ -105,6 +107,7 @@ const Register: React.FC = () => {
                 <button onClick={handleRegister} className="bg-[#826b56] text-white px-4 py-2 rounded hover:bg-[#9c7e61]">
                     註冊
                 </button>
+                <a href='/login' className=' mt-1 w-full flex justify-end'>已有帳號？</a>
             </div>
         </div>
     );

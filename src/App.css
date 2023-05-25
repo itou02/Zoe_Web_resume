@@ -1,7 +1,7 @@
 html,
 body {
   margin: 0;
-  padding: 1%;
+  padding: 0;
   background-color: #e1e1e1;
 
   /* background-color: #a58e7b; */
@@ -52,7 +52,7 @@ body {
 }
 
 nav {
-  background-color: #a58e7b;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0.2%;
 }

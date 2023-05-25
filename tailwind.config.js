@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'font': ['cwTeXYen'],
+        'font': ['Comfortaa', 'cwTeXYen'],
       },
       colors: {
         primary: colors.matcha,
