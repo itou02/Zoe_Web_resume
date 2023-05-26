@@ -50,6 +50,7 @@ const Register: React.FC = () => {
 
             if (response.ok) {
                 console.log('Registration successful,',data);
+                localStorage.setItem('token',data.access_token);
                 if(data.message==="Registration successful")
                 navigate('/login');
             } else {

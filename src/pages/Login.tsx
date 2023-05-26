@@ -27,7 +27,9 @@ const LoginPage: React.FC = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log('Access Token:', data);
-                if(data.user!=null)
+                localStorage.setItem('token',data.access_token);
+                localStorage.setItem('user',data.access_token.user);
+                if(data.access_token!=null)
                     navigate('/');
             } else {
                 console.error('Login failed');

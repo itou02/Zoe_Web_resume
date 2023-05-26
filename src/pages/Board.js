@@ -106,10 +106,18 @@ const MessageBoard = () => {
                                     </button>
                                 </>
                             ) : (
-                                <><span className="bg-gray-100 rounded-full h-6 w-6 flex items-center justify-center text-gray-500 text-sm font-semibold mr-2">
-                                    {message.id}
-                                </span>
-                                    <span className="flex-grow">{message.content}</span>
+                                <>
+                                    <span className="bg-gray-100 rounded-full h-6 w-6 flex items-center justify-center text-gray-500 text-sm font-semibold mr-2">
+                                        {message.id}
+                                    </span>
+                                    <div className="flex-grow flex flex-col">
+                                        <span className="flex-grow">{message.content}</span>
+                                        {localStorage.getItem("token") != null ?
+                                            <span className="text-sm mt-1 bg-stone-200 rounded-lg">
+                                                {localStorage.getItem("user")}
+                                            </span> 
+                                        : ""}
+                                    </div>
                                     <button
                                         onClick={() => startEditingMessage(message.id, message.content)}
                                         className="bg-[#878686] text-white px-2 py-1 rounded-md ml-2"
