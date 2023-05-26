@@ -20,14 +20,22 @@ const App: React.FC = () => (
             <Link to="/board" style={{ color: "#4d443c", textDecoration: "none", fontWeight: "500" }}>留言板</Link>
           </li>
         </ul>
-        <ul className=''>
-          <li className='w-full'>
-            <Link to="/login" style={{ color: "#4d443c", textDecoration: "none", fontWeight: "500" }}>登入</Link>
-          </li>
-          <li className='w-full'>
-            <Link to="/register" style={{ color: "#4d443c", textDecoration: "none", fontWeight: "500" }}>註冊</Link>
-          </li>
-        </ul>
+        {
+          localStorage.getItem("token") === null ?
+            <ul className=''>
+              <li className='w-full'>
+                <Link to="/login" style={{ color: "#4d443c", textDecoration: "none", fontWeight: "500" }}>登入</Link>
+              </li>
+              <li className='w-full'>
+                <Link to="/register" style={{ color: "#4d443c", textDecoration: "none", fontWeight: "500" }}>註冊</Link>
+              </li>
+            </ul>
+            :
+            <li className='w-full'>
+              <Link to="/" style={{ color: "#4d443c", textDecoration: "none", fontWeight: "500" }}>登出</Link>
+            </li>
+        }
+
       </nav>
 
       <Routes>
