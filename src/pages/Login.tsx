@@ -16,7 +16,7 @@ const LoginPage: React.FC = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/auth/login', {
+            const response = await fetch('http://localhost:8000/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
